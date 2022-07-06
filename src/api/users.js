@@ -5,6 +5,7 @@ export default Promise.resolve([
     to: 'Ali Connors',
     subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
     country: 'Russia',
+    address: 'Volgogradskaya oblast, Volzhskiy, Mira Ul., bld. 62, appt. 102',
     score: '< 10',
   },
   {
@@ -13,6 +14,7 @@ export default Promise.resolve([
     to: 'to Alex, Scott, Jennifer',
     subtitle: `Wish I could come, but I'm out of town this weekend.`,
     country: 'USA',
+    address: '101 Independence Avenue, S.E. Washington, D.C. 20559-6000',
     score: '< 10',
   },
   {
@@ -21,6 +23,7 @@ export default Promise.resolve([
     to: 'Sandra Adams',
     subtitle: 'Do you have Paris recommendations? Have you ever been?',
     country: 'Germany',
+    address: 'Viersen Rahser, Nordrhein-Westfalen(NW), 41747 02162 13 77 96',
     score: '> 20',
   },
   {
@@ -29,6 +32,7 @@ export default Promise.resolve([
     to: 'Trevor Hansen',
     subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
     country: 'Ukraine',
+    address: 'Odesskaya oblast, Odessa, Seminarskaya Ul., bld. 5/А, appt. 27',
     score: '> 20',
   },
   {
@@ -37,6 +41,7 @@ export default Promise.resolve([
     to: 'Britta Holt',
     subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
     country: 'Germany',
+    address: 'Rüthen, Nordrhein-Westfalen(NW), 59602 02902 34 13 58',
     score: '> 20',
   },
 ]);

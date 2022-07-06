@@ -19,6 +19,7 @@
           :title="user.title"
           :to="user.to"
           :subtitle="user.subtitle"
+          :address="user.country + ', ' + user.address"
         ></user-card>
       </template>
     </template>
