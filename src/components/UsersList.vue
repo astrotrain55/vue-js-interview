@@ -4,26 +4,35 @@
       v-text="header"
     ></v-subheader>
 
-    <template v-for="(user, index) in filteredUsers">
-      <v-divider
-        :key="index"
-        inset
-      ></v-divider>
+    <the-loader v-if="loader"></the-loader>
 
-      <v-list-item
-        :key="user.title"
-      >
-        <v-list-item-avatar>
-          <v-img :src="user.avatar"></v-img>
-        </v-list-item-avatar>
+    <template v-else-if="filteredUsers.length">
+      <template v-for="(user, index) in filteredUsers">
+        <v-divider
+          :key="index"
+          inset
+        ></v-divider>
 
-        <v-list-item-content>
-          <v-list-item-title v-html="user.title"></v-list-item-title>
-          <v-list-item-subtitle>
-            <span class="text--primary">{{ user.to }}</span> &mdash; {{ user.subtitle }}
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+        <v-list-item
+          :key="user.title"
+        >
+          <v-list-item-avatar>
+            <v-img :src="user.avatar"></v-img>
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title v-html="user.title"></v-list-item-title>
+            <v-list-item-subtitle>
+              <span class="text--primary">{{ user.to }}</span> &mdash; {{ user.subtitle }}
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
+    </template>
+
+    <template v-else>
+      <v-divider inset></v-divider>
+      <v-list-item>{{ errorText }}</v-list-item>
     </template>
   </v-list>
 </template>
@@ -31,6 +40,7 @@
 <script>
 import { mapState, mapMutations } from 'vuex';
 import api from '@/api';
+import TheLoader from './TheLoader';
 
 export default {
   methods: {
@@ -80,16 +90,26 @@ export default {
       });
     },
   },
+  watch: {
+    filteredUsers(users) {
+      if (!users.length) this.errorText = 'Ничего не найдено';
+    },
+  },
   created() {
+    this.loader = true;
+
     api.getUsers().then((users) => {
       this.setFilters(users);
       this.users = users;
+      this.loader = false;
     });
   },
   data() {
     return {
+      loader: false,
       header: 'List',
       users: [],
+      errorText: 'Список пользователей пуст',
     };
   },
   props: {
@@ -97,6 +117,9 @@ export default {
       type: Array,
       required: true,
     },
+  },
+  components: {
+    TheLoader,
   },
   name: 'UsersList',
 };
