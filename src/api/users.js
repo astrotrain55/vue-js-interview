@@ -1,0 +1,42 @@
+export default Promise.resolve([
+  {
+    avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+    title: 'Brunch this weekend?',
+    to: 'Ali Connors',
+    subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+    country: 'Russia',
+    score: '< 10',
+  },
+  {
+    avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+    title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>',
+    to: 'to Alex, Scott, Jennifer',
+    subtitle: `Wish I could come, but I'm out of town this weekend.`,
+    country: 'USA',
+    score: '< 10',
+  },
+  {
+    avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+    title: 'Oui oui',
+    to: 'Sandra Adams',
+    subtitle: 'Do you have Paris recommendations? Have you ever been?',
+    country: 'Germany',
+    score: '> 20',
+  },
+  {
+    avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+    title: 'Birthday gift',
+    to: 'Trevor Hansen',
+    subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
+    country: 'Ukraine',
+    score: '> 20',
+  },
+  {
+    avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+    title: 'Recipe to try',
+    to: 'Britta Holt',
+    subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+    country: 'Germany',
+    score: '> 20',
+  },
+]);
