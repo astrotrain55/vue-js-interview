@@ -1,9 +1,9 @@
 <template>
   <v-card
-      flat
-      tile
-      width="100%"
-      class="red lighten-1 text-center"
+    flat
+    tile
+    width="100%"
+    class="red lighten-1 text-center"
   >
     <v-divider></v-divider>
 
@@ -15,8 +15,6 @@
 
 <script>
 export default {
-  name: 'Footer',
-
-  data: () => ({}),
-}
+  name: 'TheFooter',
+};
 </script>
