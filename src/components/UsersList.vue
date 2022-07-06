@@ -87,7 +87,7 @@ export default {
   },
   watch: {
     filteredUsers(users) {
-      if (!users.length) this.errorText = 'Ничего не найдено';
+      if (!users.length) this.errorText = 'Nothing found';
     },
   },
   created() {
@@ -104,7 +104,7 @@ export default {
       loader: false,
       header: 'List',
       users: [],
-      errorText: 'Список пользователей пуст',
+      errorText: 'User list is empty',
     };
   },
   props: {
