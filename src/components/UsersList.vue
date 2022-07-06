@@ -6,23 +6,23 @@
 
     <the-loader v-if="loader"></the-loader>
 
-    <template v-else-if="filteredUsers.length">
-      <template v-for="(user, index) in filteredUsers">
-        <v-divider
-          :key="index"
-          inset
-        ></v-divider>
+    <transition-group
+      v-else-if="filteredUsers.length"
+      name="users-list"
+      tag="div"
+    >
+      <div v-for="user in filteredUsers" :key="user.title">
+        <v-divider inset></v-divider>
 
         <user-card
-          :key="user.title"
           :avatar="user.avatar"
           :title="user.title"
           :to="user.to"
           :subtitle="user.subtitle"
           :address="user.country + ', ' + user.address"
         ></user-card>
-      </template>
-    </template>
+      </div>
+    </transition-group>
 
     <template v-else>
       <v-divider inset></v-divider>
@@ -120,3 +120,19 @@ export default {
   name: 'UsersList',
 };
 </script>
+
+<style lang="scss">
+.users-list-enter-active,
+.users-list-leave-active {
+  max-height: 500px;
+  overflow: hidden;
+  transition: all 1s ease-in;
+}
+.users-list-enter,
+.users-list-leave-to {
+  opacity: 0;
+  max-height: 0;
+  transition: all 1s ease-out;
+  transform: translateY(30px);
+}
+</style>
