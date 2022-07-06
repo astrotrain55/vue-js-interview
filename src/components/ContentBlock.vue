@@ -14,7 +14,7 @@
         />
       </v-col>
 
-      <filter-list></filter-list>
+      <filter-list :filtered-fields="filteredFields"></filter-list>
 
       <v-col
         cols="12"
@@ -24,7 +24,7 @@
           max-width="450"
           class="mx-auto"
         >
-          <users-list></users-list>
+          <users-list :filtered-fields="filteredFields"></users-list>
         </v-card>
 
       </v-col>
@@ -37,6 +37,11 @@ import FilterList from '@/components/FilterList';
 import UsersList from '@/components/UsersList';
 
 export default {
+  data() {
+    return {
+      filteredFields: ['country', 'score'],
+    };
+  },
   components: {
     FilterList,
     UsersList,

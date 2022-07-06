@@ -4,33 +4,40 @@
     md="4"
   >
     <v-select
-      v-model="variant"
-      :items="items"
+      v-for="filter in filters"
+      :key="filter.type"
+      :value="filter.default"
+      :items="filter.items"
       clearable
-      label="Filter by country"
-    ></v-select>
-
-    <v-select
-      v-model="variant"
-      :items="items"
-      clearable
-      label="Filter by score"
+      :label="'Filter by ' + filter.type"
+      @input="onChange(filter.type, $event)"
     ></v-select>
   </v-col>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex';
+
 export default {
-  data() {
-    return {
-      items: [
-        'russia',
-        'usa',
-        '> 20',
-        '< 10',
-      ],
-      variant: 'default',
-    };
+  methods: {
+    ...mapMutations('filtration', ['setValue']),
+
+    onChange(type, value) {
+      this.setValue({ type, value });
+    },
+  },
+  computed: {
+    ...mapGetters('filtration', ['filterList']),
+
+    filters() {
+      return this.filterList(this.filteredFields);
+    },
+  },
+  props: {
+    filteredFields: {
+      type: Array,
+      required: true,
+    },
   },
   name: 'FilterList',
 };
