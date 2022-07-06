@@ -13,20 +13,13 @@
           inset
         ></v-divider>
 
-        <v-list-item
+        <user-card
           :key="user.title"
-        >
-          <v-list-item-avatar>
-            <v-img :src="user.avatar"></v-img>
-          </v-list-item-avatar>
-
-          <v-list-item-content>
-            <v-list-item-title v-html="user.title"></v-list-item-title>
-            <v-list-item-subtitle>
-              <span class="text--primary">{{ user.to }}</span> &mdash; {{ user.subtitle }}
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
+          :avatar="user.avatar"
+          :title="user.title"
+          :to="user.to"
+          :subtitle="user.subtitle"
+        ></user-card>
       </template>
     </template>
 
@@ -41,6 +34,7 @@
 import { mapState, mapMutations } from 'vuex';
 import api from '@/api';
 import TheLoader from './TheLoader';
+import UserCard from './UserCard';
 
 export default {
   methods: {
@@ -120,6 +114,7 @@ export default {
   },
   components: {
     TheLoader,
+    UserCard,
   },
   name: 'UsersList',
 };
