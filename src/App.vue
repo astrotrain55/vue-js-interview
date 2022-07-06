@@ -1,40 +1,34 @@
 <template>
   <v-app>
     <v-main>
-      <ContentBlock/>
+      <content-block></content-block>
     </v-main>
 
     <v-footer app v-bind="localAttrs">
-      <Footer />
+      <the-footer></the-footer>
     </v-footer>
   </v-app>
 </template>
 
 <script>
 import ContentBlock from './components/ContentBlock';
-import Footer from './components/Footer';
+import TheFooter from './components/TheFooter';
 
 export default {
-  name: 'App',
-
-  components: {
-    ContentBlock,
-    Footer
-  },
-
   computed: {
-    localAttrs () {
-      const attrs = {}
+    localAttrs() {
+      const attrs = {};
 
-      attrs.absolute = true
-      attrs.fixed = false
+      attrs.absolute = true;
+      attrs.fixed = false;
 
-      return attrs
+      return attrs;
     },
   },
-
-  data: () => ({
-    //
-  }),
+  components: {
+    ContentBlock,
+    TheFooter,
+  },
+  name: 'App',
 };
 </script>
