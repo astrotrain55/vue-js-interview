@@ -14,24 +14,7 @@
         />
       </v-col>
 
-      <v-col
-        cols="12"
-        md="4"
-      >
-        <v-select
-          v-model="variant"
-          :items="items"
-          clearable
-          label="Filter by country"
-        ></v-select>
-
-        <v-select
-          v-model="variant"
-          :items="items"
-          clearable
-          label="Filter by score"
-        ></v-select>
-      </v-col>
+      <filter-list></filter-list>
 
       <v-col
         cols="12"
@@ -78,15 +61,10 @@
 </template>
 
 <script>
+import FilterList from '@/components/FilterList';
+
 export default {
   data: () => ({
-    items: [
-      'russia',
-      'usa',
-      '> 20',
-      '< 10',
-    ],
-    variant: 'default',
     users: [
       { header: 'List' },
       {
@@ -120,6 +98,9 @@ export default {
       },
     ],
   }),
+  components: {
+    FilterList,
+  },
   name: 'ContentBlock',
 };
 </script>
